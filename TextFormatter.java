@@ -13,14 +13,27 @@ class TextFormatter {
     formatter.print(text);
   }
 
-  // Konstruktor
+  // Methode
   public TextFormatter(int maxLineLength) {
-    // ...
+    char[] textArray = new char[text.length()];
+    
+    // array befüllen
+    for (int i = 0; i <= text.length(); i++) {
+     textArray = text.toCharArray();
+    }
+    
+    // ausspucken -> Zeilenumbruch nach 30 chars
+    for (int i = 0; i <= text.length(); i++) {
+      System.out.print(textArray[i]);
+      if (i == maxLineLength) {
+        System.out.print("\n");
+        maxLineLength = maxLineLength + 30;
+      }
+    }
   }
 
   // Ausgabe
   public void print(String aText) {
     System.out.println("Hier sollte der Text mit passendem Umbruch erscheinen.");
   }
-
 }
