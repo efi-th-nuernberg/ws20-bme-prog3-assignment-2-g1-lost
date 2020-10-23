@@ -18,17 +18,25 @@ class TextFormatter {
     char[] textArray = new char[text.length()];
     
     // array befüllen
-    for (int i = 0; i <= text.length(); i++) {
+    for (int i = 0; i < text.length(); i++) {
      textArray = text.toCharArray();
     }
     
     // ausspucken -> Zeilenumbruch nach 30 chars
-    for (int i = 0; i <= text.length(); i++) {
-      System.out.print(textArray[i]);
+    for (int i = 0; i < text.length(); i++) {
+      int count = 0;
+      String aText = "";
+      aText += textArray[i];
       if (i == maxLineLength) {
-        System.out.print("\n");
-        maxLineLength = maxLineLength + 30;
+        while (textArray[i] != ' ') {
+          System.out.print(textArray[i]);
+          i += 1;
+          count ++;
+        }
+        aText += "\n";
+        maxLineLength = maxLineLength + (30 + count);
       }
+      System.out.print(aText);
     }
   }
 
